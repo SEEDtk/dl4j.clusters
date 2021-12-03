@@ -130,7 +130,7 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
         this.scoreName = "3";
         this.method = ClusterMergeMethod.COMPLETE;
         this.points = 0;
-        this.reportType = ClusterReporter.Type.RAW;
+        this.reportType = ClusterReporter.Type.TABULAR;
         this.genomeFile = null;
         this.sparseMode = false;
         this.groupFile = null;

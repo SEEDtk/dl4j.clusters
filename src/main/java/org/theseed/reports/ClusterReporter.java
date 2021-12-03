@@ -98,6 +98,11 @@ public abstract class ClusterReporter extends BaseReporterReporter {
             public ClusterReporter create(IParms processor) throws IOException, ParseFailureException {
                 return new SampleClusterReporter(processor);
             }
+        }, TABULAR {
+            @Override
+            public ClusterReporter create(IParms processor) {
+                return new TabularClusterReporter(processor);
+            }
         };
 
         /**

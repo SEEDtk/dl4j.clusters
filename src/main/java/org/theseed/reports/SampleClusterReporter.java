@@ -84,6 +84,9 @@ public class SampleClusterReporter extends HtmlClusterReporter {
                     if (foundTitle.isEmpty())
                         foundTitle = accession;
                     this.title = a(foundTitle).withHref(expLink).withTarget("_blank");
+                    // Use the experiment page itself as the default experiment link.
+                    // This may be overridden by an explicit link.
+                    this.expLink = a(accession).withHref(expLink).withTarget("_blank");
                 }
             }
             // Find the study.

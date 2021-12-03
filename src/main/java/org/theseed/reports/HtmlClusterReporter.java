@@ -201,7 +201,7 @@ public abstract class HtmlClusterReporter extends ClusterReporter {
     @Override
     public final void closeReport() {
         // Write the coverage statistic.
-        this.addNote(String.format("%d nontrivial clusters covering %d features.",
+        this.addNote(String.format("%d nontrivial clusters covering %d members.",
                         this.nonTrivial, this.coverage));
         // Let the subclass add summary information.
         this.addNotes();
