@@ -6,7 +6,10 @@ package org.theseed.reports;
 import java.io.File;
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.theseed.clusters.Cluster;
+import org.theseed.clusters.ClusterGroup;
 import org.theseed.clusters.methods.ClusterMergeMethod;
 import org.theseed.utils.ParseFailureException;
 
@@ -18,6 +21,11 @@ import org.theseed.utils.ParseFailureException;
  *
  */
 public abstract class ClusterReporter extends BaseReporterReporter {
+
+    // FIELDS
+    /** logging facility */
+    protected static Logger log = LoggerFactory.getLogger(ClusterReporter.class);
+
 
     /**
      * This interface describes the parameters a command processor must support for these reports.
@@ -54,6 +62,11 @@ public abstract class ClusterReporter extends BaseReporterReporter {
          */
         int getMaxSize();
 
+        /**
+         * @return the recommended batch size for queries
+         */
+        int getBatchSize();
+
     }
 
     /**
@@ -75,10 +88,15 @@ public abstract class ClusterReporter extends BaseReporterReporter {
             public ClusterReporter create(IParms processor) throws IOException, ParseFailureException {
                 return new GenomeClusterReporter(processor);
             }
-        }, ANALYTICAL {
+        }, FEATURES {
             @Override
             public ClusterReporter create(IParms processor) throws IOException, ParseFailureException {
                 return new AnalyticalClusterReporter(processor);
+            }
+        }, SAMPLES {
+            @Override
+            public ClusterReporter create(IParms processor) throws IOException, ParseFailureException {
+                return new SampleClusterReporter(processor);
             }
         };
 
@@ -92,6 +110,16 @@ public abstract class ClusterReporter extends BaseReporterReporter {
          */
         public abstract ClusterReporter create(IParms processor) throws IOException, ParseFailureException;
     }
+
+    /**
+     * Scan the cluster group in advance of the report to allow computing custom information for the
+     * report.
+     *
+     * @param mainGroup		cluster group being reported
+     *
+     * @throws IOException
+     */
+    public abstract void scanGroup(ClusterGroup mainGroup) throws IOException;
 
     /**
      * Write a cluster.

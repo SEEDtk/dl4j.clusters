@@ -4,8 +4,16 @@ import java.util.Arrays;
 
 import org.theseed.utils.BaseProcessor;
 
+/**
+ * This command group contains services related to unsupervised clustering.
+ *
+ * 	cluster		perform agglomeration clustering
+ *  freq		perform frequency analysis of pearson correlations
+ * @author Bruce Parrello
+ *
+ */
 public class App {
-    
+
     public static void main( String[] args )
     {
         // Get the control parameter.
@@ -17,6 +25,9 @@ public class App {
         case "cluster" :
             processor = new ClusterProcessor();
             break;
+        case "freq" :
+            processor = new CorrFreqProcessor();
+            break;
         default:
             throw new RuntimeException("Invalid command " + command);
         }
@@ -26,5 +37,5 @@ public class App {
             processor.run();
         }
     }
-    
+
 }

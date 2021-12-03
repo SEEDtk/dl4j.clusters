@@ -5,6 +5,7 @@ package org.theseed.reports;
 
 import org.apache.commons.lang3.StringUtils;
 import org.theseed.clusters.Cluster;
+import org.theseed.clusters.ClusterGroup;
 
 /**
  * The raw cluster report is extremely simple.  Each cluster is a single line with
@@ -29,6 +30,10 @@ public class RawClusterReporter extends ClusterReporter {
 
     @Override
     public void closeReport() {
+    }
+
+    @Override
+    public void scanGroup(ClusterGroup mainGroup) {
     }
 
 }

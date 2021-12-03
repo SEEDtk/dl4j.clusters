@@ -111,6 +111,10 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
     @Option(name = "--maxSize", metaVar = "10", usage = "maximum permissible cluster size")
     private int maxSize;
 
+    /** batch size for web queries */
+    @Option(name = "--batchSize", aliases = { "-b", "--batch" }, metaVar = "50", usage = "batch size for web queries")
+    private int batchSize;
+
     /** minimum similarity for joining */
     @Argument(index = 0, metaVar = "minScore", usage = "minimum acceptable similarity score for clustering", required = true)
     private double minScore;
@@ -132,6 +136,7 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
         this.groupFile = null;
         this.titlePrefix = null;
         this.maxSize = Integer.MAX_VALUE;
+        this.batchSize = 100;
     }
 
     @Override
@@ -139,6 +144,9 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
         // Validate the size limit.
         if (this.maxSize < 2)
             throw new ParseFailureException("Maximum cluster size must be at least 2.");
+        // Validate the batch size.
+        if (this.batchSize < 1)
+            throw new ParseFailureException("Batch size must be at least 1.");
         // Validate the input file.
         if (! this.inFile.canRead())
             throw new FileNotFoundException("Input file " + this.inFile + " is not found or unreadable.");
@@ -190,6 +198,7 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
                 largest.size(), largest.getHeight(), nonTrivial, clustered);
         // Now write the report.
         this.reporter.openReport(writer);
+        this.reporter.scanGroup(this.mainGroup);
         for (Cluster cluster : clusters)
             this.reporter.writeCluster(cluster);
         this.reporter.closeReport();
@@ -223,6 +232,11 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
     @Override
     public int getMaxSize() {
         return this.maxSize;
+    }
+
+    @Override
+    public int getBatchSize() {
+        return this.batchSize;
     }
 
 }

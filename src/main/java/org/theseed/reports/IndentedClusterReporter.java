@@ -4,6 +4,7 @@
 package org.theseed.reports;
 
 import org.theseed.clusters.Cluster;
+import org.theseed.clusters.ClusterGroup;
 
 /**
  * The indented report specifies useful information about the cluster on a header line and
@@ -42,6 +43,10 @@ public class IndentedClusterReporter extends ClusterReporter {
 
     @Override
     public void closeReport() {
+    }
+
+    @Override
+    public void scanGroup(ClusterGroup mainGroup) {
     }
 
 }

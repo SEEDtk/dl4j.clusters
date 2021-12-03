@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import org.theseed.clusters.Cluster;
+import org.theseed.clusters.ClusterGroup;
 import org.theseed.genome.Feature;
 import org.theseed.genome.Genome;
 import org.theseed.utils.ParseFailureException;
@@ -82,6 +83,10 @@ public class GenomeClusterReporter extends ClusterReporter {
 
     @Override
     public void closeReport() {
+    }
+
+    @Override
+    public void scanGroup(ClusterGroup mainGroup) {
     }
 
 }
