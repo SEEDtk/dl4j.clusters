@@ -67,6 +67,11 @@ public abstract class ClusterReporter extends BaseReporterReporter {
          */
         int getBatchSize();
 
+        /**
+         * @return the output file for subsystem ID mappings
+         */
+        File getSubFile();
+
     }
 
     /**
@@ -135,7 +140,9 @@ public abstract class ClusterReporter extends BaseReporterReporter {
 
     /**
      * Finish the report.
+     *
+     * @throws IOException
      */
-    public abstract void closeReport();
+    public abstract void closeReport() throws IOException;
 
 }

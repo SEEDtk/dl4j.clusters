@@ -47,6 +47,7 @@ import org.theseed.utils.ParseFailureException;
  * --points		estimated number of data points (default computed from file size)
  * --format		type of report to write (default INDENT)
  * --gto		GTO file for the reference genome for genome-based reports
+ * --subFile	output file for subsystem ID mapping produced from the GENOME report
  * --sparse		if specified, the incoming distances are not complete (suppresses a warning)
  * --groups		group file for ANALYTICAL reports
  * --comment	title prefix for ANALYTICAL report
@@ -98,6 +99,10 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
     /** suppress warning for incomplete pairings */
     @Option(name = "--sparse", usage = "if specified, the pairings are presumed to be incomplete")
     private boolean sparseMode;
+
+    /** subsystem ID mapping output file */
+    @Option(name = "--subFile", usage = "if specified, an output file for subsystem ID mappings in the GENOME report")
+    private File subFile;
 
     /** groups.tbl file for ANALYTICAL report */
     @Option(name = "--groups", metaVar = "groups.tbl", usage = "groups definition file for ANALYTICAL report")
@@ -237,6 +242,11 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
     @Override
     public int getBatchSize() {
         return this.batchSize;
+    }
+
+    @Override
+    public File getSubFile() {
+        return this.subFile;
     }
 
 }
