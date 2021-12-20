@@ -105,7 +105,7 @@ public class ClusterProcessor extends BaseReportProcessor implements ClusterRepo
     private File subFile;
 
     /** groups.tbl file for ANALYTICAL report */
-    @Option(name = "--groups", metaVar = "groups.tbl", usage = "groups definition file for ANALYTICAL report")
+    @Option(name = "--groups", metaVar = "groups.tbl", usage = "groups definition file for FEATURES report")
     private File groupFile;
 
     /** title prefix */

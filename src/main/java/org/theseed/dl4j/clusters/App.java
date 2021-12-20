@@ -8,7 +8,8 @@ import org.theseed.utils.BaseProcessor;
  * This command group contains services related to unsupervised clustering.
  *
  * 	cluster		perform agglomeration clustering
- *  freq		perform frequency analysis of pearson correlations
+ *  freq		perform frequency analysis of correlations
+ *
  * @author Bruce Parrello
  *
  */
