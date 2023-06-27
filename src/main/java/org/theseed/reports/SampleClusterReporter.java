@@ -46,7 +46,7 @@ public class SampleClusterReporter extends HtmlClusterReporter {
     /** pubmed articles found */
     private CountMap<String> pubmedCounts;
     /** URL format for pubmed IDs */
-    private static String PUBMED_URL = "https://pubmed.ncbi/nlm.nih.gov/%s/";
+    private static String PUBMED_URL = "https://pubmed.ncbi.nlm.nih.gov/%s/";
     /** URL format for project IDs */
     private static String PROJ_URL = "https://trace.ncbi.nlm.nih.gov/Traces/sra/?study=%s";
     /** cluster table column headers */
