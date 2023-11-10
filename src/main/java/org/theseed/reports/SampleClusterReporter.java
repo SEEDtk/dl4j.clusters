@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.theseed.basic.ParseFailureException;
 import org.theseed.clusters.Cluster;
 import org.theseed.clusters.ClusterGroup;
 import org.theseed.counters.CountMap;
@@ -18,7 +19,6 @@ import org.theseed.ncbi.NcbiListQuery;
 import org.theseed.ncbi.NcbiTable;
 import org.theseed.ncbi.XmlException;
 import org.theseed.ncbi.XmlUtils;
-import org.theseed.utils.ParseFailureException;
 import org.w3c.dom.Element;
 
 import j2html.tags.ContainerTag;

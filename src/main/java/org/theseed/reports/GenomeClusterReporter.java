@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import org.apache.commons.lang3.StringUtils;
+import org.theseed.basic.ParseFailureException;
 import org.theseed.clusters.Cluster;
 import org.theseed.clusters.ClusterGroup;
 import org.theseed.genome.Feature;
@@ -21,7 +22,6 @@ import org.theseed.genome.Genome;
 import org.theseed.genome.SubsystemRow;
 import org.theseed.magic.MagicMap;
 import org.theseed.subsystems.SubsystemRowDescriptor;
-import org.theseed.utils.ParseFailureException;
 
 /**
  * This is a special report for clusters of features in a genome.  The genome GTO

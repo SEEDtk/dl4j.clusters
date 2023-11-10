@@ -14,6 +14,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
+import org.theseed.basic.ParseFailureException;
 import org.theseed.clusters.Cluster;
 import org.theseed.clusters.ClusterGroup;
 import org.theseed.counters.CountMap;
@@ -21,7 +22,6 @@ import org.theseed.genome.Feature;
 import org.theseed.genome.Genome;
 import org.theseed.io.TabbedLineReader;
 import org.theseed.rna.RnaFeatureData;
-import org.theseed.utils.ParseFailureException;
 
 import j2html.tags.ContainerTag;
 import j2html.tags.DomContent;

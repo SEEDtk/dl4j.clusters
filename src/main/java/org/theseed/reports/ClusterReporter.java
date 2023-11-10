@@ -8,10 +8,10 @@ import java.io.IOException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.theseed.basic.ParseFailureException;
 import org.theseed.clusters.Cluster;
 import org.theseed.clusters.ClusterGroup;
 import org.theseed.clusters.methods.ClusterMergeMethod;
-import org.theseed.utils.ParseFailureException;
 
 /**
  * This is the base class for cluster reports.  The essential function of this

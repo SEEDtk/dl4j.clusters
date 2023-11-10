@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.theseed.basic.ParseFailureException;
 import org.theseed.clusters.Cluster;
 import org.theseed.clusters.methods.ClusterMergeMethod;
 import org.theseed.counters.CountMap;
-import org.theseed.utils.ParseFailureException;
 
 import j2html.tags.ContainerTag;
 import j2html.tags.DomContent;

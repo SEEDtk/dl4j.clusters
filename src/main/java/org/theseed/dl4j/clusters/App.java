@@ -2,7 +2,7 @@ package org.theseed.dl4j.clusters;
 
 import java.util.Arrays;
 
-import org.theseed.utils.BaseProcessor;
+import org.theseed.basic.BaseProcessor;
 
 /**
  * This command group contains services related to unsupervised clustering.
