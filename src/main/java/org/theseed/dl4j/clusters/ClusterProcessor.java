@@ -13,12 +13,12 @@ import org.kohsuke.args4j.Argument;
 import org.kohsuke.args4j.Option;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.theseed.basic.BaseReportProcessor;
 import org.theseed.basic.ParseFailureException;
 import org.theseed.clusters.Cluster;
 import org.theseed.clusters.ClusterGroup;
 import org.theseed.clusters.methods.ClusterMergeMethod;
 import org.theseed.reports.ClusterReporter;
-import org.theseed.utils.BaseReportProcessor;
 
 /**
  * This commands attempts to cluster objects based on similarity scores.  The input file should
